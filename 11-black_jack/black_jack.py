@@ -19,7 +19,9 @@ def start():
             user_cards.append(deal_card())
             is_game_over = compare(user_cards, computer_cards)
         elif decision == "n":
-            
+            while not is_game_over:
+                computer_cards.append(deal_card())
+                is_game_over = compare_dealer(user_cards, computer_cards)
             decision2 = input("Do you want to start another game?\n(y/n): ").lower()
             if decision2 == "y":
                 os.system("cls")
@@ -30,6 +32,17 @@ def start():
 def compare(user_cards, computer_cards):
     print(f"Your cards: {user_cards}, sum: {calculate_score(user_cards)}\nDealer cards: {computer_cards}, sum: {calculate_score(computer_cards)}")
     if ((calculate_score(user_cards) == 21) or (calculate_score(computer_cards) > 21)):
+        print("You Win!")
+        return True
+    elif ((calculate_score(computer_cards) == 21) or (calculate_score(user_cards) > 21)):
+        print("Dealer Wins!")
+        return True
+    else:
+        return False
+
+def compare_dealer(user_cards, computer_cards):
+    print(f"Your cards: {user_cards}, sum: {calculate_score(user_cards)}\nDealer cards: {computer_cards}, sum: {calculate_score(computer_cards)}")
+    if (calculate_score(computer_cards) > 21):
         print("You Win!")
         return True
     elif ((calculate_score(computer_cards) == 21) or (calculate_score(user_cards) > 21)):
