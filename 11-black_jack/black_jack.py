@@ -13,21 +13,19 @@ def start():
     is_game_over = compare(user_cards, computer_cards)
 
 
-    while True:
-        if not is_game_over:
-            decision = input("Do you want to draw a card?\n(y/n): ").lower()
-            if decision == "y":
-                user_cards.append(deal_card())
-                is_game_over = compare(user_cards, computer_cards)
-            elif decision == "n":
-                decision2 = input("Do you want to start another game?\n(y/n): ").lower()
-                if decision2 == "y":
-                    os.system("cls")
-                    start()
-                elif decision2 == "n":
-                    return
-        else:
-            return
+    while not is_game_over:
+        decision = input("Do you want to draw a card?\n(y/n): ").lower()
+        if decision == "y":
+            user_cards.append(deal_card())
+            is_game_over = compare(user_cards, computer_cards)
+        elif decision == "n":
+            
+            decision2 = input("Do you want to start another game?\n(y/n): ").lower()
+            if decision2 == "y":
+                os.system("cls")
+                start()
+            elif decision2 == "n":
+                return
     
 def compare(user_cards, computer_cards):
     print(f"Your cards: {user_cards}, sum: {calculate_score(user_cards)}\nDealer cards: {computer_cards}, sum: {calculate_score(computer_cards)}")
