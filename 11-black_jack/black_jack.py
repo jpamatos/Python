@@ -4,6 +4,7 @@ import random, os
 
 
 def start():
+    """Start a game of BlackJack"""
     is_game_over = False
     user_cards = []
     computer_cards = []
@@ -30,6 +31,7 @@ def start():
                 return
     
 def compare(user_cards, computer_cards):
+    """Compare the score of player's and computer's hand"""
     print(f"Your cards: {user_cards}, sum: {calculate_score(user_cards)}\nDealer cards: {computer_cards}, sum: {calculate_score(computer_cards)}")
     if ((calculate_score(user_cards) == 21) or (calculate_score(computer_cards) > 21)):
         print("You Win!")
@@ -41,6 +43,7 @@ def compare(user_cards, computer_cards):
         return False
 
 def compare_dealer(user_cards, computer_cards):
+    """Check if dealer wins"""
     print(f"Your cards: {user_cards}, sum: {calculate_score(user_cards)}\nDealer cards: {computer_cards}, sum: {calculate_score(computer_cards)}")
     if (calculate_score(computer_cards) > 21):
         print("You Win!")
@@ -52,6 +55,7 @@ def compare_dealer(user_cards, computer_cards):
         return False
 
 def calculate_score(hand):
+    """Calculate hand's score"""
     score = sum(hand)
     if score > 21:
         while 11 in hand:
@@ -62,6 +66,7 @@ def calculate_score(hand):
     
 
 def deal_card():
+    """Deal a card"""
     return random.choice(cards)
 
 
