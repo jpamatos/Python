@@ -1,6 +1,8 @@
+# Import art for logo
 from art import logo
 
-def cypher():
+def cipher():
+    """Start the Caesar Cipher"""
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
@@ -8,11 +10,12 @@ def cypher():
     ceasar(text, shift, direction)
     question = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n").lower()
     if question == "yes":
-        cypher()
+        cipher()
     elif question == "no":
         print("Program ended.")
 
 def ceasar(text, shift, direction):
+    """Enconde or decode the text in the cipher"""
     if direction == "decode":
             shift *= -1
     for i in range(len(text)):
@@ -28,6 +31,6 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 print(logo)
-cypher()
+cipher()
 
 
