@@ -1,11 +1,13 @@
 from art import logo
 import os
 def calculator():
+    """Start Calculator"""
     print(logo)
     a = float(input("What is the first number? "))
     continuation(a)
     
 def continuation(a):
+    """Perform a calculation and show the result"""
     op = input("Pick an operation (+, -, *, /): ")
     b = float(input("Whats the second number? "))
     if op == "/" and b == 0:
@@ -25,15 +27,19 @@ def continuation(a):
         return
 
 def add(a, b):
+    """a + b"""
     return a + b
 
 def subtract(a, b):
+    """a - b"""
     return a - b
 
 def multiply(a, b):
+    """a * b"""
     return a * b
 
 def divide(a, b):
+    """a / b"""
     return a / b
 
 operations = {

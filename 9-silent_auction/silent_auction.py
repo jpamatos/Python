@@ -2,10 +2,12 @@ from art import logo
 import os
 
 def auction():
+    """Start Auction"""
     print("Welcome to the secret auction program.")
     make_bid()
 
 def make_bid():
+    """A person makes a bid"""
     name = input("What is your name? ")
     bid = int(input("What is your bid? $"))
     bids[name] = bid
@@ -17,6 +19,7 @@ def make_bid():
         result()
     
 def result():
+    """Result of Auction"""
     max_bid = 0
     max_bidder = ""
     for bidder, bid in bids.items():
