@@ -3,6 +3,7 @@ from game_data import data
 import random
 import os
 
+
 def start():
     """Start the game of Higher Lower"""
     print(logo)
@@ -10,7 +11,7 @@ def start():
     end_game = False
     a = random_account()
     b = random_account()
-    
+
     # game loop
     while not end_game:
         a = b
@@ -19,7 +20,7 @@ def start():
         # choose a different b if it is equals to a
         while a == b:
             b = random_account()
-        
+
         # print A and B for player to choose
         print(f"Compare A: {formatted_print(a)}.")
         print(vs)
@@ -45,11 +46,10 @@ def start():
             print(f"Sorry, that's wrong. Final score: {score}")
 
 
-
-
 def random_account():
     """Get a random account from data"""
     return random.choice(data)
+
 
 def formatted_print(account):
     """Format a printable account datails"""
@@ -57,6 +57,7 @@ def formatted_print(account):
     desc = account["description"]
     country = account["country"]
     return f"{name}, a {desc}, from {country}"
+
 
 def check(guess, a, b):
     """Check user's guess againts follower number
