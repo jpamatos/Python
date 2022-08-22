@@ -29,11 +29,11 @@ while True:
         if word[i] == guess:
             display[i] = guess
             not_in_word = False
-    
+
     # Word not found
     if not_in_word:
-            lives -= 1
-    
+        lives -= 1
+
     print(f"{' '.join(display)}")
     print(stages[lives])
 
@@ -41,12 +41,8 @@ while True:
     if "_" not in display:
         print("You win!")
         break
-    
+
     # Defeat condition
     if lives == 0:
         print(f"You lose! Word was {word}")
         break
-    
-
-
-

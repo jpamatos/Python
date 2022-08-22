@@ -32,7 +32,8 @@ scissors = '''
 '''
 
 # Player choose a move
-player = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+player = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for "
+                   "Scissors.\n"))
 print("You chose: ")
 if player == 0:
     print(rock)
