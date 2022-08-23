@@ -21,10 +21,7 @@ while len(guessed) < 50:
 
     # If user wants to exit early, create a list of missing states
     if answer == "Exit":
-        missing = []
-        for state in states:
-            if state not in guessed:
-                missing.append(state)
+        missing = [state for state in states if state not in guessed]
         data_frame = pd.DataFrame(missing)
         data_frame.to_csv("States_to_learn.csv")
         break
