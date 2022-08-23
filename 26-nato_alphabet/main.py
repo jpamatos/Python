@@ -1,8 +1,14 @@
-# Keyword Method with iterrows()
-# {new_key:new_value for (index, row) in df.iterrows()}
+import pandas as pd
 
-# TODO 1. Create a dictionary in this format:
-{"A": "Alfa", "B": "Bravo"}
+# Read data with the nato alphabet
+data = pd.read_csv("nato_phonetic_alphabet.csv")
 
-# TODO 2. Create a list of the phonetic code words from a word that the
-# user inputs.
+# Dictionary comprehension to create a nato alphabet from file
+alphabet = {row.letter: row.code for (index, row) in data.iterrows()}
+
+# Get user name
+name = input("Enter a word: ").upper()
+
+# List comprehension to spell user's name in phonetic alphabet
+nato = [alphabet[letter] for letter in name]
+print(nato)
