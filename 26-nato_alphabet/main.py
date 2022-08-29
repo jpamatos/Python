@@ -6,9 +6,19 @@ data = pd.read_csv("nato_phonetic_alphabet.csv")
 # Dictionary comprehension to create a nato alphabet from file
 alphabet = {row.letter: row.code for (index, row) in data.iterrows()}
 
-# Get user name
-name = input("Enter a word: ").upper()
 
-# List comprehension to spell user's name in phonetic alphabet
-nato = [alphabet[letter] for letter in name]
-print(nato)
+def generate_phonetic():
+    """Get a word from user"""
+    word = input("Enter a word: ").upper()
+
+    # List comprehension to spell user's word in phonetic alphabet
+    try:
+        nato = [alphabet[letter] for letter in word]
+    except KeyError:
+        print("Sorry, only letters in the alphabet please.")
+        generate_phonetic()
+    else:
+        print(nato)
+
+
+generate_phonetic()
