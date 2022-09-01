@@ -1,28 +1,31 @@
+import html
+
+
 class QuizBrain:
-
     def __init__(self, q_list):
-        self.question_number = 0
+        self.q_number = 0
+        self.q_list = q_list
         self.score = 0
-        self.question_list = q_list
-        self.current_question = None
-
-    def still_has_questions(self):
-        return self.question_number < len(self.question_list)
 
     def next_question(self):
-        self.current_question = self.question_list[self.question_number]
-        self.question_number += 1
-        user_answer = input(f"Q.{self.question_number}: "
-                            "{self.current_question.text} (True/False): ")
-        self.check_answer(user_answer)
+        """Ask a quest to the player"""
+        self.current_q = self.q_list[self.q_number]
+        self.q_number += 1
+        q_text = html.unescape(self.current_q.text)
+        user_answer = input(f"Q.{self.q_number}: {q_text} "
+                            "(True/False)? ")
+        self.check_answer(user_answer, self.current_q.answer)
 
-    def check_answer(self, user_answer):
-        correct_answer = self.current_question.answer
+    def still_has_questions(self):
+        """Check if the game has a question to ask"""
+        return self.q_number < len(self.q_list)
+
+    def check_answer(self, user_answer, correct_answer):
+        """Check if the user ansered correctly"""
         if user_answer.lower() == correct_answer.lower():
-            self.score += 1
             print("You got it right!")
+            self.score += 1
         else:
             print("That's wrong.")
-
-        print(f"Your current score is: {self.score}/{self.question_number}")
-        print("\n")
+        print(f"The correct answer was: {correct_answer}!")
+        print(f"Your current score is: {self.score}/{self.q_number}\n")
