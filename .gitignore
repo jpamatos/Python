@@ -1,4 +1,5 @@
 /.vscode
+/dev.env
 /01-band_name_generator/__pycache__
 /02-tip-calculator/__pycache__
 /03-treasure_island/__pycache__
