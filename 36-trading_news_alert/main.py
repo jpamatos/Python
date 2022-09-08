@@ -49,7 +49,7 @@ else:
 diff_percent = round(difference / float(yd_closing_price) * 100)
 
 # Get news if the difference is greater than 3%
-if abs(diff_percent) > 0:
+if abs(diff_percent) > 3:
     news_params = {
         "apiKey": NEWS_API_KEY,
         "qInTitle": COMPANY_NAME,
