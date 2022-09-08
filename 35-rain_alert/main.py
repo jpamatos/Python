@@ -2,6 +2,9 @@ import requests
 import os
 from twilio.rest import Client
 from twilio.http.http_client import TwilioHttpClient
+# To load on VSCode
+from dotenv import load_dotenv
+load_dotenv()
 
 # Constansts
 OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
@@ -37,8 +40,7 @@ if will_rain:
     proxy_client.session.proxies = {'https': os.environ['https_proxy']}
 
     client = Client(account_sid, auth_token, http_client=proxy_client)
-    message = client.messages \
-        .create(
+    message = client.messages.create(
         body="It's going to rain today. Remember to bring an ☔️",
         from_="YOUR TWILIO VIRTUAL NUMBER",
         to="YOUR TWILIO VERIFIED REAL NUMBER"
