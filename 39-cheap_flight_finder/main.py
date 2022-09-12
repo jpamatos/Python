@@ -33,11 +33,10 @@ for destination in data:
     )
 
     # Send massage
-    if flight is not None:
-        if flight.price < destination["lowestPrice"]:
-            notification_manager.send_sms(
-                message=f"Low price alert! Only ${flight.price} to fly from"
-                f"{flight.origin_city}-{flight.origin_airport} to "
-                f"{flight.destination_city}-{flight.destination_airport}, "
-                f"from {flight.out_date} to {flight.return_date}."
-            )
+    if flight and flight.price < destination["lowestPrice"]:
+        notification_manager.send_sms(
+            message=f"Low price alert! Only ${flight.price} to fly from"
+            f"{flight.origin_city}-{flight.origin_airport} to "
+            f"{flight.destination_city}-{flight.destination_airport}, "
+            f"from {flight.out_date} to {flight.return_date}."
+        )
