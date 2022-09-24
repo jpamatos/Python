@@ -59,3 +59,5 @@ while True:
 
 per_second = driver.find_element("css selector", "#cookies div")
 print(per_second.text)
+
+driver.quit()
